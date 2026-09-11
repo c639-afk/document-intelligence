@@ -665,6 +665,76 @@ def validate_invoice(data):
         )
 
     # --------------------------------------------------------
+    # Check 4:
+    #
+    # Subtotal × Tax Rate = Tax
+    # --------------------------------------------------------
+
+    tax_rates = []
+
+    for item in line_items:
+        if not isinstance(item, dict):
+            continue
+
+        tax_rate = invoice_decimal(
+            str(item.get("tax_rate", "")).replace("%", "")
+        )
+
+        if tax_rate is not None:
+            tax_rates.append(tax_rate)
+
+    unique_tax_rates = set(tax_rates)
+
+    if (
+        subtotal is not None
+        and tax is not None
+        and len(unique_tax_rates) == 1
+    ):
+        tax_rate = tax_rates[0]
+
+        calculated_tax = (
+            subtotal * tax_rate / Decimal("100")
+        )
+
+        checks.append(
+            make_check(
+                "Invoice Tax",
+                "Subtotal × Tax Rate = Tax",
+                {
+                    "Subtotal": str(subtotal),
+                    "Tax Rate": f"{tax_rate}%",
+                },
+                calculated_tax,
+                tax,
+            )
+        )
+    else:
+        checks.append({
+            "check": "Invoice Tax",
+            "formula": "Subtotal × Tax Rate = Tax",
+            "input_values": {
+                "Subtotal": (
+                    str(subtotal)
+                    if subtotal is not None
+                    else None
+                ),
+                "Tax Rate": (
+                    f"{tax_rates[0]}%"
+                    if len(unique_tax_rates) == 1
+                    else None
+                ),
+            },
+            "calculated_value": None,
+            "reported_value": (
+                str(tax)
+                if tax is not None
+                else None
+            ),
+            "variance": None,
+            "status": "NOT_APPLICABLE",
+        })
+
+    # --------------------------------------------------------
     # Overall status
     # --------------------------------------------------------
 
