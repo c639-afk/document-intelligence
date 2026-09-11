@@ -5,7 +5,6 @@ from io import BytesIO
 
 from google import genai
 from google.genai import types
-from openai import AsyncOpenAI
 
 from app.core.config import settings
 from app.schemas.extraction import ExtractionResponse
@@ -29,43 +28,9 @@ def gemini_response_schema():
 
     return clean(schema)
 
-def openai_response_schema():
-    """Return an OpenAI strict-compatible JSON schema."""
-
-    schema = ExtractionResponse.model_json_schema()
-
-    def clean(value):
-        if isinstance(value, dict):
-            result = {}
-
-            for key, item in value.items():
-                # OpenAI strict structured outputs do not allow defaults.
-                if key == "default":
-                    continue
-
-                result[key] = clean(item)
-
-            # Every property must be required for strict schemas.
-            if "properties" in result:
-                result["required"] = list(
-                    result["properties"].keys()
-                )
-                result["additionalProperties"] = False
-
-            return result
-
-        if isinstance(value, list):
-            return [clean(item) for item in value]
-
-        return value
-
-    return clean(schema)
 
 client = genai.Client(api_key=settings.gemini_api_key)
 
-openai_client = AsyncOpenAI(
-    api_key=settings.openai_api_key
-)
 
 
 DOCUMENT_TYPES = {
@@ -236,11 +201,10 @@ async def generate_with_retry(
         except Exception as exc:
 
             # IMPORTANT:
-            # Do not retry quota errors. Switch to OpenAI instead.
+            # Do not retry quota errors. 
             if is_quota_error(exc):
                 print(
-                    f"Gemini quota exhausted on {model}. "
-                    "Switching to OpenAI fallback."
+                    f"Gemini quota exhausted on {model}."
                 )
                 raise
 
@@ -265,77 +229,6 @@ async def generate_with_retry(
             )
 
             await asyncio.sleep(wait_seconds)
-
-
-async def extract_with_openai(
-    document_content: bytes,
-    mime_type: str,
-    prompt: str,
-) -> dict:
-
-    print(
-        f"Trying OpenAI multimodal model: "
-        f"{settings.openai_model}"
-    )
-
-    import base64
-
-    encoded_document = base64.b64encode(
-        document_content
-    ).decode("utf-8")
-
-    data_url = (
-        f"data:{mime_type};base64,{encoded_document}"
-    )
-
-    if mime_type == "application/pdf":
-        document_input = {
-            "type": "input_file",
-            "filename": "document.pdf",
-            "file_data": data_url,
-        }
-    else:
-        document_input = {
-            "type": "input_image",
-            "image_url": data_url,
-        }
-
-    response = await openai_client.responses.create(
-        model=settings.openai_model,
-        input=[
-            {
-                "role": "user",
-                "content": [
-                    {
-                        "type": "input_text",
-                        "text": prompt,
-                    },
-                    document_input,
-                ],
-            }
-        ],
-        text={
-            "format": {
-                "type": "json_schema",
-                "name": "extraction_response",
-                "strict": True,
-                "schema": openai_response_schema(),
-            }
-        },
-    )
-
-    if not response.output_text:
-        raise ValueError(
-            "OpenAI returned an empty response"
-        )
-
-    parsed = ExtractionResponse.model_validate_json(
-        response.output_text
-    )
-
-    return parsed.model_dump(
-        exclude_none=False
-    )
 
 async def extract_document(
     document_type: str,
@@ -411,32 +304,13 @@ async def extract_document(
             )
 
             # If Gemini quota is exhausted, immediately
-            # stop trying Gemini models and use OpenAI.
+            # stop trying Gemini models.
             if is_quota_error(exc):
                 break
 
-    # ---------------------------------------------------------
-    # FALLBACK: OPENAI
-    # ---------------------------------------------------------
+    if last_error is not None:
+        raise last_error
 
-    try:
+    raise RuntimeError("Gemini extraction failed.")
 
-        return await extract_with_openai(
-            document_content=document_content,
-            mime_type=mime_type,
-            prompt=prompt,
-        )
-
-    except Exception as exc:
-
-        print(
-            f"OpenAI fallback failed: "
-            f"{type(exc).__name__}: {exc}"
-        )
-
-        if last_error is not None:
-            raise RuntimeError(
-                "Both Gemini and OpenAI extraction failed."
-            ) from exc
-
-        raise
+    

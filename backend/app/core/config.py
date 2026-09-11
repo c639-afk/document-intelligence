@@ -8,9 +8,6 @@ class Settings(BaseSettings):
     gemini_model: str = "gemini-3.6-flash"
     gemini_fallback_model: str = "gemini-3.5-flash"
 
-    openai_api_key: str
-    openai_model: str = "gpt-4.1"
-
     model_config = SettingsConfigDict(
         env_file="backend/.env",
         extra="ignore",
