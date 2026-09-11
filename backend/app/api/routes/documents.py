@@ -21,18 +21,21 @@ from app.services.document_validation_service import (
 )
 
 from app.services.ocr_service import extract_text
-from app.services.extraction_service import extract_document
 
-from app.services.financial_validation_service import (
-    validate_invoice,
-    validate_balance_sheet,
-    validate_profit_and_loss,
-    validate_cash_flow_statement,
-)
+from app.services.invoice_extraction_service import extract_invoice
+from app.services.balance_sheet_extraction_service import extract_balance_sheet
+from app.services.profit_loss_extraction_service import extract_profit_and_loss
+from app.services.cash_flow_extraction_service import extract_cash_flow
+
+from app.services.invoice_validation_service import validate_invoice
+from app.services.balance_sheet_validation_service import validate_balance_sheet
+from app.services.profit_loss_validation_service import validate_profit_and_loss
+from app.services.cash_flow_validation_service import validate_cash_flow_statement
 
 from app.schemas.document import DocumentProcessResponse
 
 logger = logging.getLogger(__name__)
+
 
 class DocumentType(str, Enum):
     INVOICE = "invoice"
@@ -42,6 +45,43 @@ class DocumentType(str, Enum):
 
 
 router = APIRouter(prefix="/documents", tags=["Documents"])
+
+
+async def extract_document(
+    document_type,
+    pages,
+    document_content,
+    mime_type,
+):
+    if document_type == DocumentType.INVOICE:
+        return await extract_invoice(
+            pages=pages,
+            document_content=document_content,
+            mime_type=mime_type,
+        )
+
+    if document_type == DocumentType.BALANCE_SHEET:
+        return await extract_balance_sheet(
+            pages=pages,
+            document_content=document_content,
+            mime_type=mime_type,
+        )
+
+    if document_type == DocumentType.PROFIT_AND_LOSS:
+        return await extract_profit_and_loss(
+            pages=pages,
+            document_content=document_content,
+            mime_type=mime_type,
+        )
+
+    if document_type == DocumentType.CASH_FLOW_STATEMENT:
+        return await extract_cash_flow(
+            pages=pages,
+            document_content=document_content,
+            mime_type=mime_type,
+        )
+
+    raise ValueError(f"Unsupported document type: {document_type}")
 
 
 @router.get("")
@@ -200,7 +240,7 @@ async def process_document(
             exc.code,
             exc.message,
         )
-                
+
         raise HTTPException(
             status_code=400,
             detail={
@@ -219,9 +259,16 @@ async def process_document(
 
     try:
 
-        logger.info("OCR/text extraction started: filename=%s", file.filename)
+        logger.info(
+            "OCR/text extraction started: filename=%s",
+            file.filename,
+        )
 
         extracted_text = await extract_text(file)
+
+        pages = extracted_text["pages"]
+        content = extracted_text["content"]
+        mime_type = extracted_text["mime_type"]
 
         logger.info(
             "AI extraction started: filename=%s, document_type=%s",
@@ -229,11 +276,14 @@ async def process_document(
             document_type.value,
         )
 
+        # Use the compatibility wrapper.
+        # The actual extraction remains completely separate
+        # for each document type.
         extracted_data = await extract_document(
-            document_type=document_type.value,
-            pages=extracted_text["pages"],
-            document_content=extracted_text["content"],
-            mime_type=extracted_text["mime_type"],
+            document_type=document_type,
+            pages=pages,
+            document_content=content,
+            mime_type=mime_type,
         )
 
         logger.info(

@@ -3,122 +3,237 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="description" content="AI-powered financial document extraction and validation platform">
     <title>Document Intelligence</title>
-
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 
 <body>
 
-<header class="header">
-    <div>
-        <h1>Document Intelligence</h1>
-        <p>AI-powered document extraction and financial validation</p>
-    </div>
+<header class="site-header">
+    <nav class="navbar">
+        <a class="brand" href="#top" aria-label="Document Intelligence home">
+            <span class="brand-mark">DI</span>
+            <span class="brand-name">
+                <span class="brand-document">DOCUMENT</span>
+                <span class="brand-intelligence">INTELLIGENCE</span>
+            </span>
+        </a>
 
-    <div id="apiStatus" class="status-badge">
-        Checking API...
-    </div>
+        <div class="nav-links">
+            <a href="#top">Home</a>
+            <a href="#process">Process</a>
+            <a href="#history">History</a>
+            <a href="#results">Results</a>
+        </div>
+
+        <div id="apiStatus" class="status-badge status-loading">
+            Checking API...
+        </div>
+    </nav>
 </header>
 
+<main id="top" class="page-shell">
 
-<main class="container">
+    <!-- Hero -->
+    <section class="hero-section">
+        <div class="hero-copy">
+            <p class="eyebrow">
+                <span></span> FINANCIAL DOCUMENT INTELLIGENCE
+            </p>
 
-    <!-- Upload Section -->
-    <section class="card upload-card">
+            <h1>
+                Turn documents into<br>
+                <strong>intelligence.</strong>
+            </h1>
 
-        <h2>Process Document</h2>
+            <p class="hero-description">
+                Extract meaningful financial data, preserve source tables and validate
+                financial relationships — all from one document workflow.
+            </p>
 
-        <div class="form-group">
-            <label for="documentType">Document Type</label>
-
-            <select id="documentType">
-                <option value="invoice">Invoice</option>
-                <option value="balance_sheet">Balance Sheet</option>
-                <option value="profit_and_loss">Profit & Loss</option>
-                <option value="cash_flow_statement">Cash Flow Statement</option>
-            </select>
+            <div class="document-pills" aria-label="Supported document types">
+                <span>Invoice</span>
+                <span>Balance Sheet</span>
+                <span>Profit &amp; Loss</span>
+                <span>Cash Flow</span>
+            </div>
         </div>
 
+        <div class="hero-accent" aria-hidden="true">
+            <div class="accent-ring accent-ring-one"></div>
+            <div class="accent-ring accent-ring-two"></div>
 
-        <div class="form-group">
-            <label for="fileInput">Document</label>
-
-            <input
-                type="file"
-                id="fileInput"
-                accept=".pdf,.jpg,.jpeg,.png"
-            >
-
-            <small>
-                Supported formats: PDF, JPG, PNG · Maximum 3 pages
-            </small>
+            <div class="accent-card">
+                <span class="accent-label">EXTRACT</span>
+                <strong>VALIDATE</strong>
+                <span class="accent-arrow">↗</span>
+            </div>
         </div>
-
-
-        <button id="processButton">
-            Process Document
-        </button>
-
-        <div id="uploadError" class="error-message hidden"></div>
-
     </section>
 
 
-    <!-- Current Result -->
-    <section id="resultSection" class="hidden">
+    <!-- Process -->
+    <section id="process" class="workspace-section">
 
-        <div class="result-header">
-
+        <div class="section-heading">
             <div>
-                <h2 id="resultDocumentName">Document</h2>
-                <p id="resultDocumentType"></p>
+                <p class="section-kicker">01 / PROCESS</p>
+                <h2>Upload a document.</h2>
             </div>
 
-            <div id="processingStatus" class="status-badge">
-                -
+            <p>
+                Choose the document type, upload the source file and let the pipeline
+                handle extraction and financial validation.
+            </p>
+        </div>
+
+        <section class="process-card">
+
+            <div class="process-card-top">
+                <div>
+                    <span class="card-number">01</span>
+                    <h3>Process Document</h3>
+                </div>
+
+                <span class="format-note">
+                    PDF · JPG · PNG · MAX 3 PAGES
+                </span>
+            </div>
+
+            <div class="upload-layout">
+
+                <div class="form-group">
+                    <label for="documentType">DOCUMENT TYPE</label>
+
+                    <select id="documentType">
+                        <option value="invoice">Invoice</option>
+                        <option value="balance_sheet">Balance Sheet</option>
+                        <option value="profit_and_loss">
+                            Profit &amp; Loss
+                        </option>
+                        <option value="cash_flow_statement">
+                            Cash Flow Statement
+                        </option>
+                    </select>
+                </div>
+
+                <div class="form-group file-group">
+
+                    <label for="fileInput">SOURCE DOCUMENT</label>
+
+                    <label class="file-dropzone" for="fileInput">
+                        <span class="upload-icon">↑</span>
+
+                        <span class="file-drop-title" id="selectedFileName">
+                            Choose a document
+                        </span>
+
+                        <span class="file-drop-subtitle" id="selectedFileType">
+                            PDF, JPG or PNG
+                        </span>
+                    </label>
+
+                    <input
+                        type="file"
+                        id="fileInput"
+                        accept=".pdf,.jpg,.jpeg,.png"
+                    >
+
+                    <small>
+                        Native and scanned/image documents are supported.
+                    </small>
+
+                </div>
+            </div>
+
+            <div class="process-action-row">
+
+                <div id="uploadError" class="error-message hidden"></div>
+
+                <button id="processButton" class="primary-button">
+                    Process Document
+                    <span>↗</span>
+                </button>
+
+            </div>
+
+        </section>
+    </section>
+
+
+    <!-- Results -->
+    <section id="resultSection" class="hidden result-area">
+
+        <div id="results" class="section-heading result-heading">
+
+            <div>
+                <p class="section-kicker">02 / RESULT</p>
+                <h2>Document intelligence.</h2>
+            </div>
+
+            <div class="result-title-meta">
+
+                <h3 id="resultDocumentName">
+                    Document
+                </h3>
+
+                <p id="resultDocumentType"></p>
+
+                <div id="processingStatus" class="status-badge">
+                    -
+                </div>
+
             </div>
 
         </div>
 
 
         <!-- File Information -->
-        <section class="card">
+        <section class="content-card">
 
-            <h2>Document Information</h2>
+            <div class="card-heading">
+                <div>
+                    <span class="card-number">01</span>
+                    <h3>Document Information</h3>
+                </div>
+            </div>
 
             <div class="info-grid">
 
                 <div>
-                    <span class="label">File Type</span>
-                    <span id="fileType">-</span>
+                    <span class="label">FILE TYPE</span>
+                    <strong id="fileType">-</strong>
                 </div>
 
                 <div>
-                    <span class="label">Pages</span>
-                    <span id="pageCount">-</span>
+                    <span class="label">PAGES</span>
+                    <strong id="pageCount">-</strong>
                 </div>
 
                 <div>
-                    <span class="label">OCR Used</span>
-                    <span id="ocrUsed">-</span>
+                    <span class="label">OCR USED</span>
+                    <strong id="ocrUsed">-</strong>
                 </div>
 
                 <div>
-                    <span class="label">Processing Time</span>
-                    <span id="processingTime">-</span>
+                    <span class="label">PROCESSING TIME</span>
+                    <strong id="processingTime">-</strong>
                 </div>
 
             </div>
-
         </section>
 
 
         <!-- Extracted Fields -->
-        <section class="card">
+        <section class="content-card">
 
-            <h2>Extracted Fields</h2>
+            <div class="card-heading">
+                <div>
+                    <span class="card-number">02</span>
+                    <h3>Extracted Fields</h3>
+                </div>
+            </div>
 
             <div id="fieldsContainer" class="fields-grid"></div>
 
@@ -126,11 +241,17 @@
 
 
         <!-- Invoice Line Items -->
-        <section id="lineItemsSection" class="card hidden">
+        <section id="lineItemsSection" class="content-card hidden">
 
-            <h2>Line Items</h2>
+            <div class="card-heading">
+                <div>
+                    <span class="card-number">03</span>
+                    <h3>Line Items</h3>
+                </div>
+            </div>
 
             <div class="table-wrapper">
+
                 <table>
 
                     <thead>
@@ -146,15 +267,21 @@
                     <tbody id="lineItemsBody"></tbody>
 
                 </table>
+
             </div>
 
         </section>
 
 
         <!-- Financial Tables -->
-        <section class="card">
+        <section class="content-card">
 
-            <h2>Extracted Tables</h2>
+            <div class="card-heading">
+                <div>
+                    <span class="card-number">04</span>
+                    <h3>Extracted Tables</h3>
+                </div>
+            </div>
 
             <div id="tablesContainer"></div>
 
@@ -162,18 +289,25 @@
 
 
         <!-- Validation -->
-        <section class="card">
+        <section class="content-card validation-card">
 
-            <div class="section-title-row">
-                <h2>Financial Validation</h2>
+            <div class="card-heading section-title-row">
+
+                <div>
+                    <span class="card-number">05</span>
+                    <h3>Financial Validation</h3>
+                </div>
+
                 <span id="validationStatus" class="status-badge">
                     -
                 </span>
+
             </div>
 
             <div id="validationIssues"></div>
 
             <div class="table-wrapper">
+
                 <table>
 
                     <thead>
@@ -190,15 +324,21 @@
                     <tbody id="validationBody"></tbody>
 
                 </table>
+
             </div>
 
         </section>
 
 
         <!-- Extraction Issues -->
-        <section id="extractionIssuesSection" class="card hidden">
+        <section id="extractionIssuesSection" class="content-card hidden">
 
-            <h2>Extraction Issues</h2>
+            <div class="card-heading">
+                <div>
+                    <span class="card-number">06</span>
+                    <h3>Extraction Issues</h3>
+                </div>
+            </div>
 
             <ul id="extractionIssues"></ul>
 
@@ -206,11 +346,14 @@
 
 
         <!-- Raw JSON -->
-        <section class="card">
+        <section class="content-card raw-json-card">
 
-            <div class="section-title-row">
+            <div class="card-heading section-title-row">
 
-                <h2>Raw JSON</h2>
+                <div>
+                    <span class="card-number">07</span>
+                    <h3>Raw JSON</h3>
+                </div>
 
                 <button
                     id="toggleJsonButton"
@@ -229,50 +372,74 @@
 
 
     <!-- History -->
-    <section class="card">
+    <section id="history" class="workspace-section history-section">
 
-        <div class="section-title-row">
+        <div class="section-heading">
 
             <div>
-                <h2>Processing History</h2>
-                <p class="muted">
-                    Previously processed documents
-                </p>
+                <p class="section-kicker">03 / HISTORY</p>
+                <h2>Processed documents.</h2>
             </div>
 
-            <button
-                id="refreshHistoryButton"
-                class="secondary-button"
-            >
-                Refresh
-            </button>
+            <div class="history-heading-actions">
+
+                <p>
+                    Open a previous result without processing the document again.
+                </p>
+
+                <button
+                    id="refreshHistoryButton"
+                    class="secondary-button"
+                >
+                    Refresh ↻
+                </button>
+
+            </div>
 
         </div>
 
 
-        <div class="table-wrapper">
+        <section class="content-card history-card">
 
-            <table>
+            <div class="table-wrapper">
 
-                <thead>
-                    <tr>
-                        <th>Document</th>
-                        <th>Type</th>
-                        <th>Status</th>
-                        <th>Pages</th>
-                        <th>Processed</th>
-                    </tr>
-                </thead>
+                <table>
 
-                <tbody id="historyBody"></tbody>
+                    <thead>
+                        <tr>
+                            <th>Document</th>
+                            <th>Type</th>
+                            <th>Status</th>
+                            <th>Pages</th>
+                            <th>Processed</th>
+                        </tr>
+                    </thead>
 
-            </table>
+                    <tbody id="historyBody"></tbody>
 
-        </div>
+                </table>
+
+            </div>
+
+        </section>
 
     </section>
 
 </main>
+
+
+<footer class="footer">
+
+    <div>
+        <span class="brand-mark small">DI</span>
+        <strong>DOCUMENT INTELLIGENCE</strong>
+    </div>
+
+    <span>
+        AI-powered extraction · financial validation · REST API
+    </span>
+
+</footer>
 
 
 <script src="/static/js/app.js"></script>

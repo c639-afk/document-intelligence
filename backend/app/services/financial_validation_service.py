@@ -430,6 +430,8 @@ def validate_invoice(data):
 
     subtotal_raw = get_field(
         "subtotal",
+        "total net amount",
+        "total_net_amount",
         "net total",
         "net amount",
         "net_amount",
@@ -445,6 +447,8 @@ def validate_invoice(data):
 
     tax_raw = get_field(
         "tax amount",
+        "total vat amount",
+        "total_vat_amount",
         "tax_amount",
         "vat total",
         "vat amount",
@@ -467,6 +471,8 @@ def validate_invoice(data):
     total_raw = get_field(
         "total amount",
         "total_amount",
+        "gross amount",
+        "gross_amount",
         "gross total",
         "invoice total",
         "total",
