@@ -1,5 +1,6 @@
 from pathlib import Path
 from io import BytesIO
+import logging
 from fastapi import UploadFile
 from pypdf import PdfReader
 from PIL import Image
@@ -14,6 +15,8 @@ SUPPORTED_EXTENSIONS = {".pdf", ".jpg", ".jpeg", ".png"}
 
 MAX_PAGES = 3
 
+logger = logging.getLogger(__name__)
+
 
 class DocumentValidationError(Exception):
     def __init__(self, code: str, message: str):
@@ -25,6 +28,12 @@ class DocumentValidationError(Exception):
 async def validate_document(file: UploadFile) -> dict:
     filename = file.filename or ""
     extension = Path(filename).suffix.lower()
+
+    logger.info(
+        "Document validation requested: filename=%s, extension=%s",
+        filename,
+        extension,
+    )
 
     # Check extension
     if extension not in SUPPORTED_EXTENSIONS:
@@ -44,7 +53,6 @@ async def validate_document(file: UploadFile) -> dict:
         )
 
     # Validate PDF
-        # Validate PDF
     if extension == ".pdf":
         try:
             reader = PdfReader(BytesIO(content))
@@ -82,6 +90,12 @@ async def validate_document(file: UploadFile) -> dict:
 
     # Reset file position so later services can read it
     await file.seek(0)
+
+    logger.info(
+        "Document validation passed: filename=%s, page_count=%s",
+        filename,
+        page_count,
+    )
 
     return {
         "file_type": file.content_type,

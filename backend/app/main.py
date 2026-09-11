@@ -7,7 +7,9 @@ from fastapi.responses import FileResponse
 from app.core.database import Base, engine
 from app.api.routes.documents import router as documents_router
 
+from app.core.logging import configure_logging
 
+configure_logging()
 # ---------------------------------------------------------
 # DATABASE
 # ---------------------------------------------------------

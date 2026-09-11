@@ -2,6 +2,7 @@ from datetime import datetime, timezone
 import time
 from enum import Enum
 import json
+import logging
 
 from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile
 from sqlalchemy.orm import Session
@@ -31,6 +32,7 @@ from app.services.financial_validation_service import (
 
 from app.schemas.document import DocumentProcessResponse
 
+logger = logging.getLogger(__name__)
 
 class DocumentType(str, Enum):
     INVOICE = "invoice"
@@ -172,6 +174,12 @@ async def process_document(
 ):
     start_time = time.perf_counter()
 
+    logger.info(
+        "Document processing started: filename=%s, document_type=%s",
+        file.filename,
+        document_type.value,
+    )
+
     # ---------------------------------------------------------
     # DOCUMENT VALIDATION
     # ---------------------------------------------------------
@@ -179,7 +187,20 @@ async def process_document(
     try:
         file_validation = await validate_document(file)
 
+        logger.info(
+            "Document validation passed: filename=%s, page_count=%s",
+            file.filename,
+            file_validation.get("page_count"),
+        )
+
     except DocumentValidationError as exc:
+        logger.warning(
+            "Document validation failed: filename=%s, code=%s, message=%s",
+            file.filename,
+            exc.code,
+            exc.message,
+        )
+                
         raise HTTPException(
             status_code=400,
             detail={
@@ -197,13 +218,27 @@ async def process_document(
     # ---------------------------------------------------------
 
     try:
+
+        logger.info("OCR/text extraction started: filename=%s", file.filename)
+
         extracted_text = await extract_text(file)
+
+        logger.info(
+            "AI extraction started: filename=%s, document_type=%s",
+            file.filename,
+            document_type.value,
+        )
 
         extracted_data = await extract_document(
             document_type=document_type.value,
             pages=extracted_text["pages"],
             document_content=extracted_text["content"],
             mime_type=extracted_text["mime_type"],
+        )
+
+        logger.info(
+            "AI extraction completed: filename=%s",
+            file.filename,
         )
 
         financial_validation = {
@@ -226,8 +261,17 @@ async def process_document(
                 extracted_data
             )
 
+        logger.info(
+            "Financial validation completed: filename=%s, status=%s",
+            file.filename,
+            financial_validation.get("overall_status"),
+        )
+
     except Exception as exc:
-        print(f"Processing error: {exc}")
+        logger.exception(
+            "Document processing failed: filename=%s",
+            file.filename,
+        )
 
         error_text = str(exc).lower()
 
@@ -282,6 +326,15 @@ async def process_document(
     else:
         processing_status = "PASS"
 
+    logger.info(
+        "Processing status determined: filename=%s, status=%s, "
+        "extraction_ok=%s, validation_status=%s",
+        file.filename,
+        processing_status,
+        extraction_ok,
+        validation_status,
+    )
+
     # ---------------------------------------------------------
     # FINAL RESULT
     # ---------------------------------------------------------
@@ -310,5 +363,11 @@ async def process_document(
     # ---------------------------------------------------------
 
     save_document(db, result)
+
+    logger.info(
+        "Document result persisted: filename=%s, status=%s",
+        file.filename,
+        processing_status,
+    )
 
     return result

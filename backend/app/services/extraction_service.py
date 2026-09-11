@@ -1,5 +1,6 @@
 import asyncio
 import json
+import logging
 
 from io import BytesIO
 
@@ -9,6 +10,7 @@ from google.genai import types
 from app.core.config import settings
 from app.schemas.extraction import ExtractionResponse
 
+logger = logging.getLogger(__name__)
 
 def gemini_response_schema():
     """Return a Gemini-compatible JSON schema."""
@@ -203,8 +205,9 @@ async def generate_with_retry(
             # IMPORTANT:
             # Do not retry quota errors. 
             if is_quota_error(exc):
-                print(
-                    f"Gemini quota exhausted on {model}."
+                logger.error(
+                    "Gemini quota exhausted on model=%s",
+                    model,
                 )
                 raise
 
@@ -223,9 +226,10 @@ async def generate_with_retry(
 
             wait_seconds = 2 ** attempt
 
-            print(
-                f"Gemini temporary error on {model}. "
-                f"Retrying in {wait_seconds} seconds..."
+            logger.warning(
+                "Gemini temporary error on model=%s. Retrying in %s seconds.",
+                model,
+                wait_seconds,
             )
 
             await asyncio.sleep(wait_seconds)
@@ -255,11 +259,17 @@ async def extract_document(
     # ---------------------------------------------------------
     # PRIMARY: GEMINI
     # ---------------------------------------------------------
+    logger.info(
+        "Uploading document to Gemini: mime_type=%s",
+        mime_type,
+    )
 
     uploaded_file = client.files.upload(
         file=BytesIO(document_content),
         config={"mime_type": mime_type},
     )
+
+    logger.info("Document uploaded to Gemini successfully")
 
     contents = [uploaded_file, prompt]
 
@@ -277,8 +287,9 @@ async def extract_document(
 
         try:
 
-            print(
-                f"Trying Gemini multimodal model: {model}"
+            logger.info(
+                "Trying Gemini multimodal model: %s",
+                model,
             )
 
             response = await generate_with_retry(
@@ -290,6 +301,12 @@ async def extract_document(
                 response.text
             )
 
+            logger.info(
+                "Gemini extraction succeeded: model=%s, document_type=%s",
+                model,
+                document_type,
+            )
+
             return parsed.model_dump(
                 exclude_none=False
             )
@@ -298,9 +315,11 @@ async def extract_document(
 
             last_error = exc
 
-            print(
-                f"Gemini model {model} failed: "
-                f"{type(exc).__name__}: {exc}"
+            logger.warning(
+                "Gemini model failed: model=%s, error_type=%s, error=%s",
+                model,
+                type(exc).__name__,
+                exc,
             )
 
             # If Gemini quota is exhausted, immediately

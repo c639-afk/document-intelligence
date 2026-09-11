@@ -1,0 +1,485 @@
+{
+  "document_name": "Consolidated Cash Flow Statement 2017(1).pdf",
+  "document_type": "cash_flow_statement",
+  "processing_status": "PASS",
+  "file_validation": {
+    "file_type": "application/pdf",
+    "is_supported": true,
+    "is_readable": true,
+    "page_count": 2,
+    "status": "PASS"
+  },
+  "extraction": {
+    "document_type": "cash_flow_statement",
+    "fields": [
+      {
+        "name": "statement_title",
+        "value": "Consolidated Cash Flow Statement",
+        "evidence": "Consolidated Cash Flow Statement",
+        "page_number": 1
+      },
+      {
+        "name": "reporting_period",
+        "value": "For the year ended March 31, 2017",
+        "evidence": "For the year ended March 31, 2017",
+        "page_number": 1
+      },
+      {
+        "name": "unit",
+        "value": "₹ in '000",
+        "evidence": "₹ in '000",
+        "page_number": 1
+      },
+      {
+        "name": "comparative_period",
+        "value": "Year ended 31-Mar-16",
+        "evidence": "Year ended 31-Mar-16",
+        "page_number": 1
+      }
+    ],
+    "line_items": [],
+    "tables": [
+      {
+        "name": "Cash flows from operating and investing activities",
+        "columns": [
+          "Particulars",
+          "31-Mar-17",
+          "31-Mar-16"
+        ],
+        "rows": [
+          {
+            "type": "line_item",
+            "label": "Consolidated profit before income tax",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "233,311,478",
+                "evidence": "233,311,478",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "194,949,948",
+                "evidence": "194,949,948",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Consolidated profit before income tax",
+            "page_number": 1
+          },
+          {
+            "type": "line_item",
+            "label": "Net cash flow (used in) / from operating activities",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "172,815,931",
+                "evidence": "172,815,931",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "(344,353,663)",
+                "evidence": "(344,353,663)",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Net cash flow (used in) / from operating activities",
+            "page_number": 1
+          },
+          {
+            "type": "line_item",
+            "label": "Cash flows used in investing activities",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "(11,476,802)",
+                "evidence": "(11,476,802)",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "(8,655,510)",
+                "evidence": "(8,655,510)",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Cash flows used in investing activities",
+            "page_number": 1
+          },
+          {
+            "type": "line_item",
+            "label": "Purchase of fixed assets",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "(11,577,570)",
+                "evidence": "(11,577,570)",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "(8,771,635)",
+                "evidence": "(8,771,635)",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Purchase of fixed assets",
+            "page_number": 1
+          },
+          {
+            "type": "line_item",
+            "label": "Proceeds from sale of fixed assets",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "100,768",
+                "evidence": "100,768",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "116,125",
+                "evidence": "116,125",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Proceeds from sale of fixed assets",
+            "page_number": 1
+          }
+        ]
+      },
+      {
+        "name": "Cash flows from financing and cash reconciliation",
+        "columns": [
+          "Particulars",
+          "31-Mar-17",
+          "31-Mar-16"
+        ],
+        "rows": [
+          {
+            "type": "line_item",
+            "label": "Increase in minority interest",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "818,605",
+                "evidence": "818,605",
+                "page_number": 2
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "189,954",
+                "evidence": "189,954",
+                "page_number": 2
+              }
+            ],
+            "evidence": "Increase in minority interest",
+            "page_number": 2
+          },
+          {
+            "type": "line_item",
+            "label": "Money received on exercise of stock options by employees",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "22,615,161",
+                "evidence": "22,615,161",
+                "page_number": 2
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "12,229,008",
+                "evidence": "12,229,008",
+                "page_number": 2
+              }
+            ],
+            "evidence": "Money received on exercise of stock options by employees",
+            "page_number": 2
+          },
+          {
+            "type": "line_item",
+            "label": "Increase / (decrease) in borrowings (excluding subordinate debt, perpetual debt and upper tier II instruments)",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "(33,898,658)",
+                "evidence": "(33,898,658)",
+                "page_number": 2
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "402,081,134",
+                "evidence": "402,081,134",
+                "page_number": 2
+              }
+            ],
+            "evidence": "Increase / (decrease) in borrowings",
+            "page_number": 2
+          },
+          {
+            "type": "line_item",
+            "label": "Redemption of subordinated debt",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "(19,084,500)",
+                "evidence": "(19,084,500)",
+                "page_number": 2
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "(12,020,000)",
+                "evidence": "(12,020,000)",
+                "page_number": 2
+              }
+            ],
+            "evidence": "Redemption of subordinated debt",
+            "page_number": 2
+          },
+          {
+            "type": "line_item",
+            "label": "Dividend paid during the year",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "(24,083,093)",
+                "evidence": "(24,083,093)",
+                "page_number": 2
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "(20,091,666)",
+                "evidence": "(20,091,666)",
+                "page_number": 2
+              }
+            ],
+            "evidence": "Dividend paid during the year",
+            "page_number": 2
+          },
+          {
+            "type": "line_item",
+            "label": "Tax on dividend",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "(5,297,258)",
+                "evidence": "(5,297,258)",
+                "page_number": 2
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "(4,237,089)",
+                "evidence": "(4,237,089)",
+                "page_number": 2
+              }
+            ],
+            "evidence": "Tax on dividend",
+            "page_number": 2
+          },
+          {
+            "type": "total",
+            "label": "Net cash generated from financing activities",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "(58,929,743)",
+                "evidence": "(58,929,743)",
+                "page_number": 2
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "378,151,341",
+                "evidence": "378,151,341",
+                "page_number": 2
+              }
+            ],
+            "evidence": "Net cash generated from financing activities",
+            "page_number": 2
+          },
+          {
+            "type": "line_item",
+            "label": "Effect of exchange fluctuation on translation reserve",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "(282,622)",
+                "evidence": "(282,622)",
+                "page_number": 2
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "282,433",
+                "evidence": "282,433",
+                "page_number": 2
+              }
+            ],
+            "evidence": "Effect of exchange fluctuation on translation reserve",
+            "page_number": 2
+          },
+          {
+            "type": "line_item",
+            "label": "Cash and cash equivalents acquired",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "295,617",
+                "evidence": "295,617",
+                "page_number": 2
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "-",
+                "evidence": "-",
+                "page_number": 2
+              }
+            ],
+            "evidence": "Cash and cash equivalents acquired",
+            "page_number": 2
+          },
+          {
+            "type": "total",
+            "label": "Net increase / (decrease) in cash and cash equivalents",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "102,422,381",
+                "evidence": "102,422,381",
+                "page_number": 2
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "25,424,601",
+                "evidence": "25,424,601",
+                "page_number": 2
+              }
+            ],
+            "evidence": "Net increase / (decrease) in cash and cash equivalents",
+            "page_number": 2
+          },
+          {
+            "type": "line_item",
+            "label": "Cash and cash equivalents as at April 1st (Schedules 6 and 7)",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "390,688,815",
+                "evidence": "390,688,815",
+                "page_number": 2
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "365,264,214",
+                "evidence": "365,264,214",
+                "page_number": 2
+              }
+            ],
+            "evidence": "Cash and cash equivalents as at April 1st",
+            "page_number": 2
+          },
+          {
+            "type": "total",
+            "label": "Cash and cash equivalents as at March 31st (Schedules 6 and 7)",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "493,111,196",
+                "evidence": "493,111,196",
+                "page_number": 2
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "390,688,815",
+                "evidence": "390,688,815",
+                "page_number": 2
+              }
+            ],
+            "evidence": "Cash and cash equivalents as at March 31st",
+            "page_number": 2
+          }
+        ]
+      }
+    ]
+  },
+  "validation": {
+    "overall_status": "PASS",
+    "checks": [
+      {
+        "check": "Net Increase in Cash (2017)",
+        "formula": "Operating + Investing + Financing + FX / Translation + Cash Acquired = Net Increase",
+        "input_values": {
+          "Operating": "172,815,931",
+          "Investing": "-11,476,802",
+          "Financing": "-58,929,743",
+          "FX / Translation": "-282,622",
+          "Cash Acquired": "295,617"
+        },
+        "calculated_value": "102,422,381",
+        "reported_value": "102,422,381",
+        "variance": "0",
+        "status": "PASS"
+      },
+      {
+        "check": "Closing Cash (2017)",
+        "formula": "Opening Cash + Net Increase = Closing Cash",
+        "input_values": {
+          "Opening Cash": "390,688,815",
+          "Net Increase": "102,422,381"
+        },
+        "calculated_value": "493,111,196",
+        "reported_value": "493,111,196",
+        "variance": "0",
+        "status": "PASS"
+      },
+      {
+        "check": "Net Increase in Cash (2016)",
+        "formula": "Operating + Investing + Financing + FX / Translation + Cash Acquired = Net Increase",
+        "input_values": {
+          "Operating": "-344,353,663",
+          "Investing": "-8,655,510",
+          "Financing": "378,151,341",
+          "FX / Translation": "282,433",
+          "Cash Acquired": "0"
+        },
+        "calculated_value": "25,424,601",
+        "reported_value": "25,424,601",
+        "variance": "0",
+        "status": "PASS"
+      },
+      {
+        "check": "Closing Cash (2016)",
+        "formula": "Opening Cash + Net Increase = Closing Cash",
+        "input_values": {
+          "Opening Cash": "365,264,214",
+          "Net Increase": "25,424,601"
+        },
+        "calculated_value": "390,688,815",
+        "reported_value": "390,688,815",
+        "variance": "0",
+        "status": "PASS"
+      }
+    ],
+    "issues": []
+  },
+  "processing_metadata": {
+    "ocr_used": true,
+    "multimodal_extraction": true
+  }
+}

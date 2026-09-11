@@ -1,0 +1,730 @@
+{
+  "document_name": "Consolidated Profit & Loss 2017(1).pdf",
+  "document_type": "profit_and_loss",
+  "processing_status": "PASS",
+  "file_validation": {
+    "file_type": "application/pdf",
+    "is_supported": true,
+    "is_readable": true,
+    "page_count": 1,
+    "status": "PASS"
+  },
+  "extraction": {
+    "document_type": "profit_and_loss",
+    "fields": [
+      {
+        "name": "statement_title",
+        "value": "Consolidated Statement of Profit and Loss",
+        "evidence": "Consolidated Statement of Profit and Loss",
+        "page_number": 1
+      },
+      {
+        "name": "reporting_period",
+        "value": "Year ended March 31, 2017",
+        "evidence": "For the year ended March 31, 2017",
+        "page_number": 1
+      },
+      {
+        "name": "unit",
+        "value": "₹ in '000",
+        "evidence": "₹ in '000",
+        "page_number": 1
+      },
+      {
+        "name": "comparative_period",
+        "value": "Year ended 31-Mar-16",
+        "evidence": "Year ended 31-Mar-16",
+        "page_number": 1
+      }
+    ],
+    "line_items": [],
+    "tables": [
+      {
+        "name": "Consolidated Statement of Profit and Loss",
+        "columns": [
+          "Particulars",
+          "Schedule",
+          "31-Mar-17",
+          "31-Mar-16"
+        ],
+        "rows": [
+          {
+            "type": "section_header",
+            "label": "I INCOME",
+            "schedule": null,
+            "values": [],
+            "evidence": "I INCOME",
+            "page_number": 1
+          },
+          {
+            "type": "line_item",
+            "label": "Interest earned",
+            "schedule": "13",
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "732,713,529",
+                "evidence": "732,713,529",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "631,615,614",
+                "evidence": "631,615,614",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Interest earned",
+            "page_number": 1
+          },
+          {
+            "type": "line_item",
+            "label": "Other income",
+            "schedule": "14",
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "128,776,329",
+                "evidence": "128,776,329",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "112,116,541",
+                "evidence": "112,116,541",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Other income",
+            "page_number": 1
+          },
+          {
+            "type": "total",
+            "label": "Total",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "861,489,858",
+                "evidence": "861,489,858",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "743,732,155",
+                "evidence": "743,732,155",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Total income",
+            "page_number": 1
+          },
+          {
+            "type": "section_header",
+            "label": "II EXPENDITURE",
+            "schedule": null,
+            "values": [],
+            "evidence": "II EXPENDITURE",
+            "page_number": 1
+          },
+          {
+            "type": "line_item",
+            "label": "Interest expended",
+            "schedule": "15",
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "380,415,844",
+                "evidence": "380,415,844",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "340,695,748",
+                "evidence": "340,695,748",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Interest expended",
+            "page_number": 1
+          },
+          {
+            "type": "line_item",
+            "label": "Operating expenses",
+            "schedule": "16",
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "207,510,707",
+                "evidence": "207,510,707",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "178,318,808",
+                "evidence": "178,318,808",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Operating expenses",
+            "page_number": 1
+          },
+          {
+            "type": "line_item",
+            "label": "Provisions and contingencies",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "120,689,285",
+                "evidence": "120,689,285",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "96,544,349",
+                "evidence": "96,544,349",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Provisions and contingencies",
+            "page_number": 1
+          },
+          {
+            "type": "total",
+            "label": "Total",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "708,615,836",
+                "evidence": "708,615,836",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "615,558,905",
+                "evidence": "615,558,905",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Total expenditure",
+            "page_number": 1
+          },
+          {
+            "type": "section_header",
+            "label": "III PROFIT",
+            "schedule": null,
+            "values": [],
+            "evidence": "III PROFIT",
+            "page_number": 1
+          },
+          {
+            "type": "line_item",
+            "label": "Net profit for the year",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "152,874,022",
+                "evidence": "152,874,022",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "128,173,250",
+                "evidence": "128,173,250",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Net profit for the year",
+            "page_number": 1
+          },
+          {
+            "type": "line_item",
+            "label": "Less: Minority interest",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "367,165",
+                "evidence": "367,165",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "197,212",
+                "evidence": "197,212",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Less: Minority interest",
+            "page_number": 1
+          },
+          {
+            "type": "line_item",
+            "label": "Add: Share in profits of associates",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "23,393",
+                "evidence": "23,393",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "37,278",
+                "evidence": "37,278",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Add: Share in profits of associates",
+            "page_number": 1
+          },
+          {
+            "type": "total",
+            "label": "Consolidated profit for the year attributable to the Group",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "152,530,250",
+                "evidence": "152,530,250",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "128,013,316",
+                "evidence": "128,013,316",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Consolidated profit for the year attributable to the Group",
+            "page_number": 1
+          },
+          {
+            "type": "line_item",
+            "label": "Impact on amortisation (Refer Schedule 18(1))",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "274,507",
+                "evidence": "274,507",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "-",
+                "evidence": "-",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Impact on amortisation",
+            "page_number": 1
+          },
+          {
+            "type": "line_item",
+            "label": "Balance in Profit and Loss account brought forward",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "248,255,886",
+                "evidence": "248,255,886",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "195,508,642",
+                "evidence": "195,508,642",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Balance in Profit and Loss account brought forward",
+            "page_number": 1
+          },
+          {
+            "type": "total",
+            "label": "Total",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "401,060,643",
+                "evidence": "401,060,643",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "323,521,958",
+                "evidence": "323,521,958",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Total profit section",
+            "page_number": 1
+          },
+          {
+            "type": "section_header",
+            "label": "IV APPROPRIATIONS",
+            "schedule": null,
+            "values": [],
+            "evidence": "IV APPROPRIATIONS",
+            "page_number": 1
+          },
+          {
+            "type": "line_item",
+            "label": "Transfer to Statutory Reserve",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "37,771,634",
+                "evidence": "37,771,634",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "31,809,345",
+                "evidence": "31,809,345",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Transfer to Statutory Reserve",
+            "page_number": 1
+          },
+          {
+            "type": "line_item",
+            "label": "Proposed dividend [Refer Schedule 18(3)]",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "-",
+                "evidence": "-",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "24,017,772",
+                "evidence": "24,017,772",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Proposed dividend",
+            "page_number": 1
+          },
+          {
+            "type": "line_item",
+            "label": "Tax (including cess) on interim / proposed dividend",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "255,959",
+                "evidence": "255,959",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "5,123,529",
+                "evidence": "5,123,529",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Tax (including cess) on interim / proposed dividend",
+            "page_number": 1
+          },
+          {
+            "type": "line_item",
+            "label": "Dividend (including tax / cess thereon) pertaining to previous year paid during the year, net of dividend tax credits",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "(16,909)",
+                "evidence": "(16,909)",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "(117,135)",
+                "evidence": "(117,135)",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Dividend pertaining to previous year",
+            "page_number": 1
+          },
+          {
+            "type": "line_item",
+            "label": "Transfer to General Reserve",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "14,549,641",
+                "evidence": "14,549,641",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "12,296,213",
+                "evidence": "12,296,213",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Transfer to General Reserve",
+            "page_number": 1
+          },
+          {
+            "type": "line_item",
+            "label": "Transfer to Capital Reserve",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "3,134,100",
+                "evidence": "3,134,100",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "2,221,532",
+                "evidence": "2,221,532",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Transfer to Capital Reserve",
+            "page_number": 1
+          },
+          {
+            "type": "line_item",
+            "label": "Transfer to / (from) Investment Reserve Account",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "42,934",
+                "evidence": "42,934",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "(85,184)",
+                "evidence": "(85,184)",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Transfer to / (from) Investment Reserve Account",
+            "page_number": 1
+          },
+          {
+            "type": "total",
+            "label": "Balance carried over to Balance Sheet",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "345,323,284",
+                "evidence": "345,323,284",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "248,255,886",
+                "evidence": "248,255,886",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Balance carried over to Balance Sheet",
+            "page_number": 1
+          },
+          {
+            "type": "total",
+            "label": "Total",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "401,060,643",
+                "evidence": "401,060,643",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "323,521,958",
+                "evidence": "323,521,958",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Appropriations total",
+            "page_number": 1
+          },
+          {
+            "type": "section_header",
+            "label": "V EARNINGS PER EQUITY SHARE (Face value ₹ 2 per share)",
+            "schedule": null,
+            "values": [],
+            "evidence": "V EARNINGS PER EQUITY SHARE",
+            "page_number": 1
+          },
+          {
+            "type": "line_item",
+            "label": "Basic",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "59.95",
+                "evidence": "59.95",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "50.85",
+                "evidence": "50.85",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Basic EPS",
+            "page_number": 1
+          },
+          {
+            "type": "line_item",
+            "label": "Diluted",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "59.16",
+                "evidence": "59.16",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "50.24",
+                "evidence": "50.24",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Diluted EPS",
+            "page_number": 1
+          }
+        ]
+      }
+    ]
+  },
+  "validation": {
+    "overall_status": "PASS",
+    "checks": [
+      {
+        "check": "Total Income (2017)",
+        "formula": "Interest Earned + Other Income = Total Income",
+        "input_values": {
+          "Interest Earned": "732,713,529",
+          "Other Income": "128,776,329"
+        },
+        "calculated_value": "861,489,858",
+        "reported_value": "861,489,858",
+        "variance": "0",
+        "status": "PASS"
+      },
+      {
+        "check": "Total Income (2016)",
+        "formula": "Interest Earned + Other Income = Total Income",
+        "input_values": {
+          "Interest Earned": "631,615,614",
+          "Other Income": "112,116,541"
+        },
+        "calculated_value": "743,732,155",
+        "reported_value": "743,732,155",
+        "variance": "0",
+        "status": "PASS"
+      },
+      {
+        "check": "Total Expenditure (2017)",
+        "formula": "Interest Expended + Operating Expenses + Provisions and Contingencies = Total Expenditure",
+        "input_values": {
+          "Interest Expended": "380,415,844",
+          "Operating Expenses": "207,510,707",
+          "Provisions and Contingencies": "120,689,285"
+        },
+        "calculated_value": "708,615,836",
+        "reported_value": "708,615,836",
+        "variance": "0",
+        "status": "PASS"
+      },
+      {
+        "check": "Total Expenditure (2016)",
+        "formula": "Interest Expended + Operating Expenses + Provisions and Contingencies = Total Expenditure",
+        "input_values": {
+          "Interest Expended": "340,695,748",
+          "Operating Expenses": "178,318,808",
+          "Provisions and Contingencies": "96,544,349"
+        },
+        "calculated_value": "615,558,905",
+        "reported_value": "615,558,905",
+        "variance": "0",
+        "status": "PASS"
+      },
+      {
+        "check": "Net Profit before Minority Interest (2017)",
+        "formula": "Total Income - Total Expenditure = Net Profit for the Year",
+        "input_values": {
+          "Total Income": "861,489,858",
+          "Total Expenditure": "708,615,836"
+        },
+        "calculated_value": "152,874,022",
+        "reported_value": "152,874,022",
+        "variance": "0",
+        "status": "PASS"
+      },
+      {
+        "check": "Attributable Profit (2017)",
+        "formula": "Net Profit - Minority Interest + Share in Profits of Associates = Consolidated Profit attributable to Group",
+        "input_values": {
+          "Net Profit": "152,874,022",
+          "Minority Interest": "367,165",
+          "Share in Profits of Associates": "23,393"
+        },
+        "calculated_value": "152,530,250",
+        "reported_value": "152,530,250",
+        "variance": "0",
+        "status": "PASS"
+      },
+      {
+        "check": "Net Profit before Minority Interest (2016)",
+        "formula": "Total Income - Total Expenditure = Net Profit for the Year",
+        "input_values": {
+          "Total Income": "743,732,155",
+          "Total Expenditure": "615,558,905"
+        },
+        "calculated_value": "128,173,250",
+        "reported_value": "128,173,250",
+        "variance": "0",
+        "status": "PASS"
+      },
+      {
+        "check": "Attributable Profit (2016)",
+        "formula": "Net Profit - Minority Interest + Share in Profits of Associates = Consolidated Profit attributable to Group",
+        "input_values": {
+          "Net Profit": "128,173,250",
+          "Minority Interest": "197,212",
+          "Share in Profits of Associates": "37,278"
+        },
+        "calculated_value": "128,013,316",
+        "reported_value": "128,013,316",
+        "variance": "0",
+        "status": "PASS"
+      }
+    ],
+    "issues": []
+  },
+  "processing_metadata": {
+    "ocr_used": true,
+    "multimodal_extraction": true
+  }
+}

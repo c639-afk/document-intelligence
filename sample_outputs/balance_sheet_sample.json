@@ -1,0 +1,451 @@
+{
+  "document_name": "Consolidated Balance Sheet 2017(1).pdf",
+  "document_type": "balance_sheet",
+  "processing_status": "PASS",
+  "file_validation": {
+    "file_type": "application/pdf",
+    "is_supported": true,
+    "is_readable": true,
+    "page_count": 1,
+    "status": "PASS"
+  },
+  "extraction": {
+    "document_type": "balance_sheet",
+    "fields": [
+      {
+        "name": "statement_title",
+        "value": "Consolidated Balance Sheet",
+        "evidence": "Consolidated Balance Sheet",
+        "page_number": 1
+      },
+      {
+        "name": "reporting_date",
+        "value": "31-Mar-17",
+        "evidence": "As at March 31, 2017",
+        "page_number": 1
+      },
+      {
+        "name": "unit",
+        "value": "₹ in '000",
+        "evidence": "₹ in '000",
+        "page_number": 1
+      },
+      {
+        "name": "comparative_date",
+        "value": "31-Mar-16",
+        "evidence": "As at 31-Mar-16",
+        "page_number": 1
+      }
+    ],
+    "line_items": [],
+    "tables": [
+      {
+        "name": "Consolidated Balance Sheet",
+        "columns": [
+          "Particulars",
+          "Schedule",
+          "31-Mar-17",
+          "31-Mar-16"
+        ],
+        "rows": [
+          {
+            "type": "section_header",
+            "label": "CAPITAL AND LIABILITIES",
+            "schedule": null,
+            "values": [],
+            "evidence": "CAPITAL AND LIABILITIES",
+            "page_number": 1
+          },
+          {
+            "type": "line_item",
+            "label": "Capital",
+            "schedule": "1",
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "5,125,091",
+                "evidence": "5,125,091",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "5,056,373",
+                "evidence": "5,056,373",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Capital",
+            "page_number": 1
+          },
+          {
+            "type": "line_item",
+            "label": "Reserves and surplus",
+            "schedule": "2",
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "912,814,397",
+                "evidence": "912,814,397",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "737,984,869",
+                "evidence": "737,984,869",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Reserves and surplus",
+            "page_number": 1
+          },
+          {
+            "type": "line_item",
+            "label": "Minority interest",
+            "schedule": "2A",
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "2,914,389",
+                "evidence": "2,914,389",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "1,806,228",
+                "evidence": "1,806,228",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Minority interest",
+            "page_number": 1
+          },
+          {
+            "type": "line_item",
+            "label": "Deposits",
+            "schedule": "3",
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "6,431,342,479",
+                "evidence": "6,431,342,479",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "5,458,732,889",
+                "evidence": "5,458,732,889",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Deposits",
+            "page_number": 1
+          },
+          {
+            "type": "line_item",
+            "label": "Borrowings",
+            "schedule": "4",
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "984,156,439",
+                "evidence": "984,156,439",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "1,037,139,597",
+                "evidence": "1,037,139,597",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Borrowings",
+            "page_number": 1
+          },
+          {
+            "type": "line_item",
+            "label": "Other liabilities and provisions",
+            "schedule": "5",
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "587,088,812",
+                "evidence": "587,088,812",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "381,403,308",
+                "evidence": "381,403,308",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Other liabilities and provisions",
+            "page_number": 1
+          },
+          {
+            "type": "total",
+            "label": "Total",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "8,923,441,607",
+                "evidence": "8,923,441,607",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "7,622,123,264",
+                "evidence": "7,622,123,264",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Total capital and liabilities",
+            "page_number": 1
+          },
+          {
+            "type": "section_header",
+            "label": "ASSETS",
+            "schedule": null,
+            "values": [],
+            "evidence": "ASSETS",
+            "page_number": 1
+          },
+          {
+            "type": "line_item",
+            "label": "Cash and balances with Reserve Bank of India",
+            "schedule": "6",
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "379,105,485",
+                "evidence": "379,105,485",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "300,765,846",
+                "evidence": "300,765,846",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Cash and balances with Reserve Bank of India",
+            "page_number": 1
+          },
+          {
+            "type": "line_item",
+            "label": "Balances with banks and money at call and short notice",
+            "schedule": "7",
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "114,005,711",
+                "evidence": "114,005,711",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "89,922,969",
+                "evidence": "89,922,969",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Balances with banks and money at call and short notice",
+            "page_number": 1
+          },
+          {
+            "type": "line_item",
+            "label": "Investments",
+            "schedule": "8",
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "2,107,771,120",
+                "evidence": "2,107,771,120",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "1,936,338,475",
+                "evidence": "1,936,338,475",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Investments",
+            "page_number": 1
+          },
+          {
+            "type": "line_item",
+            "label": "Advances",
+            "schedule": "9",
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "5,854,809,871",
+                "evidence": "5,854,809,871",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "4,872,904,174",
+                "evidence": "4,872,904,174",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Advances",
+            "page_number": 1
+          },
+          {
+            "type": "line_item",
+            "label": "Fixed assets",
+            "schedule": "10",
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "38,146,997",
+                "evidence": "38,146,997",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "34,796,976",
+                "evidence": "34,796,976",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Fixed assets",
+            "page_number": 1
+          },
+          {
+            "type": "line_item",
+            "label": "Other assets",
+            "schedule": "11",
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "429,602,423",
+                "evidence": "429,602,423",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "387,394,824",
+                "evidence": "387,394,824",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Other assets",
+            "page_number": 1
+          },
+          {
+            "type": "total",
+            "label": "Total",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "8,923,441,607",
+                "evidence": "8,923,441,607",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "7,622,123,264",
+                "evidence": "7,622,123,264",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Total assets",
+            "page_number": 1
+          },
+          {
+            "type": "other",
+            "label": "Contingent liabilities",
+            "schedule": "12",
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "8,182,942,892",
+                "evidence": "8,182,942,892",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "8,535,273,826",
+                "evidence": "8,535,273,826",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Contingent liabilities",
+            "page_number": 1
+          },
+          {
+            "type": "other",
+            "label": "Bills for collection",
+            "schedule": null,
+            "values": [
+              {
+                "period": "31-Mar-17",
+                "value": "308,480,352",
+                "evidence": "308,480,352",
+                "page_number": 1
+              },
+              {
+                "period": "31-Mar-16",
+                "value": "234,899,997",
+                "evidence": "234,899,997",
+                "page_number": 1
+              }
+            ],
+            "evidence": "Bills for collection",
+            "page_number": 1
+          }
+        ]
+      }
+    ]
+  },
+  "validation": {
+    "overall_status": "PASS",
+    "checks": [
+      {
+        "check": "Balance Sheet Equation (2017)",
+        "formula": "Assets = Capital + Reserves and Surplus + Minority Interest + Deposits + Borrowings + Other Liabilities and Provisions",
+        "input_values": {
+          "Assets": "8,923,441,607",
+          "Capital": "5,125,091",
+          "Reserves and Surplus": "912,814,397",
+          "Minority Interest": "2,914,389",
+          "Deposits": "6,431,342,479",
+          "Borrowings": "984,156,439",
+          "Other Liabilities and Provisions": "587,088,812"
+        },
+        "calculated_value": "8,923,441,607",
+        "reported_value": "8,923,441,607",
+        "variance": "0",
+        "status": "PASS"
+      },
+      {
+        "check": "Balance Sheet Equation (2016)",
+        "formula": "Assets = Capital + Reserves and Surplus + Minority Interest + Deposits + Borrowings + Other Liabilities and Provisions",
+        "input_values": {
+          "Assets": "7,622,123,264",
+          "Capital": "5,056,373",
+          "Reserves and Surplus": "737,984,869",
+          "Minority Interest": "1,806,228",
+          "Deposits": "5,458,732,889",
+          "Borrowings": "1,037,139,597",
+          "Other Liabilities and Provisions": "381,403,308"
+        },
+        "calculated_value": "7,622,123,264",
+        "reported_value": "7,622,123,264",
+        "variance": "0",
+        "status": "PASS"
+      }
+    ],
+    "issues": []
+  },
+  "processing_metadata": {
+    "ocr_used": true,
+    "multimodal_extraction": true
+  }
+}
