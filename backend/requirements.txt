@@ -11,3 +11,4 @@ Pillow
 pytesseract
 httpx
 google-genai
+pytest
