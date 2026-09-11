@@ -334,8 +334,14 @@ document-intelligence/
 │   │   │   └── extraction.py
 │   │   ├── services/
 │   │   │   ├── document_validation_service.py
-│   │   │   ├── extraction_service.py
-│   │   │   ├── financial_validation_service.py
+│   │   │   ├── invoice_extraction_service.py
+│   │   │   ├── invoice_validation_service.py
+│   │   │   ├── balance_sheet_extraction_service.py
+│   │   │   ├── balance_sheet_validation_service.py
+│   │   │   ├── profit_loss_extraction_service.py
+│   │   │   ├── profit_loss_validation_service.py
+│   │   │   ├── cash_flow_extraction_service.py
+│   │   │   ├── cash_flow_validation_service.py
 │   │   │   └── ocr_service.py
 │   │   └── main.py
 │   ├── tests/
