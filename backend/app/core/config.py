@@ -12,9 +12,9 @@ class Settings(BaseSettings):
     openai_model: str = "gpt-4.1"
 
     model_config = SettingsConfigDict(
-        env_file=".env",
+        env_file="backend/.env",
         extra="ignore",
-    )
+        )
 
 
 settings = Settings()
