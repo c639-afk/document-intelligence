@@ -33,41 +33,26 @@ Documents are limited to **3 pages**.
 
 ## System Architecture
 
-```text
-                 ┌──────────────────────┐
-                 │      Web Frontend     │
-                 │    HTML / CSS / JS    │
-                 └──────────┬───────────┘
-                            │
-                            ▼
-                 ┌──────────────────────┐
-                 │      FastAPI API     │
-                 │  Upload / Process /  │
-                 │  Retrieve / History  │
-                 └──────────┬───────────┘
-                            │
-              ┌─────────────┼─────────────┐
-              ▼             ▼             ▼
-       ┌────────────┐ ┌────────────┐ ┌──────────────┐
-       │  Document  │ │ OCR / Text │ │   Gemini     │
-       │ Validation │ │ Extraction │ │ Multimodal   │
-       └────────────┘ └────────────┘ │ Extraction   │
-                                    └──────┬───────┘
-                                           │
-                                           ▼
-                                  ┌─────────────────┐
-                                  │ Financial       │
-                                  │ Validation      │
-                                  │ (deterministic) │
-                                  └────────┬────────┘
-                                           │
-                                           ▼
-                                  ┌─────────────────┐
-                                  │ SQLAlchemy DB   │
-                                  │ SQLite /        │
-                                  │ PostgreSQL      │
-                                  └─────────────────┘
-```
+![System Architecture](docs/architecture.png)
+
+### Architecture Flow
+
+**Frontend → FastAPI → Document Processing → PostgreSQL → Dashboard**
+
+The document processing layer performs file validation, native PDF extraction or OCR, document-specific Gemini extraction, completeness and evidence handling, and deterministic financial validation.
+
+The system supports four document types:
+- Invoice
+- Balance Sheet
+- Profit & Loss
+- Cash Flow Statement
+
+Gemini is used for structured extraction, while Tesseract is used for scanned/image-based OCR.
+
+## Documentation
+
+- [Solution Presentation](docs/solution_presentation.pdf)
+- [System Architecture](docs/architecture.png)
 
 ## Processing Pipeline
 
@@ -606,6 +591,14 @@ For PDFs, native text extraction is attempted first. OCR is used when the native
 
 Processed results are persisted so that a document can be retrieved later through the API and displayed in processing history.
 
+## Assumptions
+
+- The document type is selected by the user; automatic document classification is not required.
+- Documents contain at most 3 pages.
+- Supported inputs are PDF, JPG/JPEG, and PNG.
+- Missing or unreadable values are represented as `null` rather than inferred.
+- Reprocessing the same document name updates the latest stored result.
+
 ## Current Limitations
 
 - Gemini extraction requires an available Gemini API quota.
@@ -613,6 +606,24 @@ Processed results are persisted so that a document can be retrieved later throug
 - Financial validation is intentionally conservative when required values are missing or ambiguous.
 - The application is designed for documents of up to 3 pages as required by the case study.
 - The deployed service uses a free-tier hosting configuration and may experience cold starts or resource limitations.
+
+## Production Improvements
+
+For a production deployment, I would:
+
+- Add authentication and authorization
+- Add API rate limiting
+- Move long-running document processing to background workers
+- Add centralized logging, metrics, tracing, and alerting
+- Use production-grade API quotas and infrastructure
+- Add broader regression datasets and extraction accuracy benchmarks
+- Add document versioning and audit trails where required
+
+## AI-Assisted Development
+
+AI coding assistants were used during development for debugging, troubleshooting, code review, extraction-prompt refinement, validation logic refinement, and documentation support.
+
+All AI-generated suggestions were reviewed, tested, and adapted manually. The final implementation, testing, deployment, and verification were performed by the candidate.
 
 ## Submission Checklist
 
